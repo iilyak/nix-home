@@ -9,6 +9,7 @@
     chromium
     jq
     nix-prefetch-git
+    rofi
     swayidle
     swaylock
     udisks
