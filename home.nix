@@ -9,6 +9,8 @@
     chromium
     jq
     nix-prefetch-git
+    swayidle
+    swaylock
     udisks
     unzip
     wget
