@@ -56,4 +56,8 @@
     enable = true;
   };
 
+  home.file = {
+    ".config/sway/config".source = ./apps/sway/config;
+  };
+
 }
