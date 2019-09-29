@@ -61,6 +61,7 @@
 
   home.file = {
     ".config/sway/config".source = ./apps/sway/config;
+    ".config/sway/bindings.conf".source = ./apps/sway/bindings.conf;
   };
 
 }
