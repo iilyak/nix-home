@@ -64,6 +64,7 @@
     ".config/sway/config".source = ./apps/sway/config;
     ".config/sway/bindings.conf".source = ./apps/sway/bindings.conf;
     ".config/i3status-rs/config.toml".source = ./apps/i3status-rs/config.toml;
+    ".config/alacritty/alacritty.yml".source = ./apps/alacritty/alacritty.yml;
   };
 
 }
