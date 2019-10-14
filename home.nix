@@ -7,6 +7,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
   imports = [
     ./modules
   ];
+
   home.packages = with pkgs; [
     alacritty
     chromium
@@ -18,6 +19,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     nix-prefetch-git
     pass
     rofi
+    unstable.starship
     swayidle
     swaylock
     udisks
@@ -80,6 +82,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     ".config/sway/bindings.conf".source = ./apps/sway/bindings.conf;
     ".config/i3status-rs/config.toml".source = ./apps/i3status-rs/config.toml;
     ".config/alacritty/alacritty.yml".source = ./apps/alacritty/alacritty.yml;
+    ".bashrc".source = ./apps/bash/.bashrc;
   };
 
   home.activation.copySecureFSJSON = dagEntryAfter ["writeBounady"] ''
