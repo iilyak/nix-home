@@ -24,6 +24,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     unzip
     vscodium
     wget
+    wl-clipboard
     wpa_supplicant_gui
     zathura
   ];
