@@ -1,0 +1,64 @@
+theme = "solarized-light"
+icons = "awesome"
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage}% {time}"
+
+# example of options block
+# [[block]]
+# block = "custom"
+# cycle = ["echo ON", "echo OFF"]
+
+# Example of sound
+# requires alsa
+# [[block]]
+# block = "sound"
+
+## Example of layout
+# not supported in older version
+# [[block]]
+# block = "keyboard_layout"
+# driver = "localbus"
+
+## Example of a toggle
+# [[block]]
+# block = "toggle"
+# command_state = "cat ~/.config/toggle"
+# command_on = "echo 5 > ~/.config/toggle"
+# command_off = "echo 0 > ~/.config/toggle"
+
+## Example of menu
+# [[block]]
+# block = "custom"
+# command = "echo "
+# on_click = "echo -e \"A\\nB\\nC\" | rofi -dmenu"
+
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %F %R"
+
+[[block]]
+block = "custom"
+command = "echo "
+on_click = "swaynag -t warning -m 'Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'"
+
