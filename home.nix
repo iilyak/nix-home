@@ -10,25 +10,39 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
 
   home.packages = with pkgs; [
     alacritty
+    bat # terminal file viever
     chromium
+    direnv
+    firefox-wayland
+    gcc
+    ghc
+    gimp
+    gnumake
     gnupg
     pinentry
+    rust
+    htop
     i3status-rust
     jq
     libreoffice
     nix-prefetch-git
-    pass
+    pandoc
+    pass # terminal password manager
+    ripgrep # rg - fast grep
     rofi
     unstable.starship
     swayidle
     swaylock
+    tree
     udisks
     unzip
+    vlc
     vscodium
     wget
     wl-clipboard
     wpa_supplicant_gui
-    zathura
+    zathura # document viewer
+    zeal # offline documentation viewer
   ];
 
   programs.home-manager.enable = true;
