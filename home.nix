@@ -14,6 +14,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     pinentry
     i3status-rust
     jq
+    libreoffice
     nix-prefetch-git
     rofi
     swayidle
@@ -22,6 +23,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     unzip
     wget
     wpa_supplicant_gui
+    zathura # document viewer
   ];
 
   programs.home-manager.enable = true;
