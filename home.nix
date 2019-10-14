@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+with import <nixpkgs> {};
+with lib;
+with import <home-manager/modules/lib/dag.nix> { inherit lib; };
 {
   imports = [
     ./modules
@@ -7,6 +10,8 @@
   home.packages = with pkgs; [
     alacritty
     chromium
+    gnupg
+    pinentry
     i3status-rust
     jq
     nix-prefetch-git
@@ -18,7 +23,6 @@
     wget
     wpa_supplicant_gui
   ];
-
 
   programs.home-manager.enable = true;
 
@@ -60,11 +64,22 @@
     enable = true;
   };
 
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = false;
+    defaultCacheTtl = 1800;
+  };
+
   home.file = {
     ".config/sway/config".source = ./apps/sway/config;
     ".config/sway/bindings.conf".source = ./apps/sway/bindings.conf;
     ".config/i3status-rs/config.toml".source = ./apps/i3status-rs/config.toml;
     ".config/alacritty/alacritty.yml".source = ./apps/alacritty/alacritty.yml;
   };
+
+  home.activation.copySecureFSJSON = dagEntryAfter ["writeBounady"] ''
+      $DRY_RUN_CMD gpg --decrypt --output ~/.config/private/vault/.securefs.json ${./private/securefs.json.gpg}
+      $DRY_RUN_CMD chmod 600 ~/.config/private/vault/.securefs.json
+  '';
 
 }
