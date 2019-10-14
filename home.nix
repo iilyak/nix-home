@@ -22,6 +22,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     udisks
     unzip
     wget
+    wl-clipboard
     wpa_supplicant_gui
     zathura # document viewer
   ];
