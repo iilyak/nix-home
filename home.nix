@@ -78,7 +78,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
   };
 
   home.activation.copySecureFSJSON = dagEntryAfter ["writeBounady"] ''
-      $DRY_RUN_CMD gpg --decrypt --output ~/.config/private/vault/.securefs.json ${./private/securefs.json.gpg}
+      $DRY_RUN_CMD [ -f ~/.config/private/vault/.securefs.json ] || gpg --decrypt --output ~/.config/private/vault/.securefs.json ${./private/securefs.json.gpg}
       $DRY_RUN_CMD chmod 600 ~/.config/private/vault/.securefs.json
   '';
 
