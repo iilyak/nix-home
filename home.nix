@@ -14,14 +14,18 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     pinentry
     i3status-rust
     jq
+    libreoffice
     nix-prefetch-git
+    pass
     rofi
     swayidle
     swaylock
     udisks
     unzip
+    vscodium
     wget
     wpa_supplicant_gui
+    zathura
   ];
 
   programs.home-manager.enable = true;
