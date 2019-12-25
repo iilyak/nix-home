@@ -11,21 +11,24 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
   home.packages = with pkgs; [
     alacritty
     bat # terminal file viever
+    cargo
     chromium
     direnv
     firefox-wayland
     gcc
     ghc
     gimp
+    go_bootstrap
     gnumake
     gnupg
     pinentry
-    rust
+    rustc
     htop
     i3status-rust
     jq
     libreoffice
     nix-prefetch-git
+    nodejs-11_x
     pandoc
     pass # terminal password manager
     ripgrep # rg - fast grep
