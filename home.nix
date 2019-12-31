@@ -18,7 +18,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     gcc
     ghc
     gimp
-    go_bootstrap
+    go_1_12
     gnumake
     gnupg
     pinentry
