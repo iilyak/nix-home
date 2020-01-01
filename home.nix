@@ -3,6 +3,37 @@
 with import <nixpkgs> {};
 with lib;
 with import <home-manager/modules/lib/dag.nix> { inherit lib; };
+let
+nigthlyRustChannel = pkgs.rustChannelOf { date = "2019-12-27"; channel = "nightly"; };
+nightlyRustPlatform = makeRustPlatform {
+    rustc = nigthlyRustChannel.rust;
+    cargo = nigthlyRustChannel.cargo;
+  };
+
+pi = nightlyRustPlatform.buildRustPackage rec {
+    name = "pi";
+    version = "3.1.19";
+
+    src = fetchgit {
+      url = "https://github.com/vmchale/project-init";
+      rev = "5fa419d254f688f15384a54ffbe12af8abd69435";
+      sha256 = "1hcg015b02h1rz50fwkvx88sn008z8v21n1amh96vf5zfr4ikxrl";
+    };
+
+    depsSha256 = "";
+    meta = with stdenv.lib; {
+        description = "Command line program for bootstraping projects";
+        homepage = "https://github.com/vmchale/project-init";
+    };
+    cargoSha256 = "0sprwck5w7kscyfm4lb7zibabyqcjv7lcmqwrhprq6jfk6jxlk21";
+
+    buildInputs = [
+      pkgconfig
+      openssl
+    ];
+};
+
+in
 {
   imports = [
     ./modules
@@ -46,6 +77,8 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
     wpa_supplicant_gui
     zathura # document viewer
     zeal # offline documentation viewer
+  ] ++ [
+    pi
   ];
 
   programs.home-manager.enable = true;
